@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Timetable - AI Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="master.style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+  <h2>AI Timetable</h2>
+  <nav>
+    <ul>
+      <li><a href="app.html">Generate Timetable</a></li>
+      <li><a href="class.html">Class Management</a></li>
+      <li><a href="master.html" class="active">Master Timetable</a></li>
+      <li><a href="view_timetable.html">View Timetable</a></li>
+      <li><a href="faculty.html">Faculty Data</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <button class="logout-button" id="logout-button-master">Logout</button>
+</aside>
+
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1 class="main-title">📘 Master Timetable</h1>
+
+      <div id="class-title" class="class-title"></div>
+
+      <!-- The timetable grid -->
+      <div id="timetable-grid" class="timetable-grid-box"></div>
+
+      <div class="controls">
+        <button id="edit-btn">✏️ Edit Timetable</button>
+        <button id="save-btn" class="hidden">💾 Save Timetable</button>
+        <button id="history-btn">📜 View History</button>
+      </div>
+
+      <div class="controls-right">
+    <button onclick="downloadMasterPDF('timetable-grid')">
+      📄 Download PDF
+    </button>
+
+    <button onclick="downloadMasterImage('timetable-grid')">
+      🖼️ Save Image
+    </button>
+  </div>
+
+</div>
+
+
+      <div id="history-panel" class="hidden">
+        <h3>📅 Previous Timetable Versions</h3>
+        <div id="history-list"></div>
+      </div>
+       <div id="historyModal" class="modal">
+  <div class="modal-content">
+      <span id="closeModal" class="close-btn">&times;</span>
+      <h2>Saved Timetable</h2>
+      <div id="historyTimetable"></div>
+  </div>
+</div>
+    </main>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="master.script.js"></script>
+</body>
+</html>

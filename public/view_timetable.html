@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Timetable - AI Timetable</title>
+  <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="timetable_grid.css"> </head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>AI Timetable</h2>
+      <nav>
+        <ul>
+          <li><a href="app.html">Generate Timetable</a></li>
+         <li><a href="class.html">Class Management</a></li>
+          <li><a href="view_timetable.html" class="active">View Timetable</a></li>
+          <li><a href="faculty.html">Faculty Data</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+      <button class="logout-button" id="logout-button-view">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="main-title" id="timetable-title">Your Timetable</h1>
+
+      <div class="card"><button onclick="downloadAsPDF('timetable-grid-container')">
+  Download PDF
+</button>
+
+<button onclick="downloadAsImage('timetable-grid-container')">
+  Save Image
+</button>
+
+
+
+        <div id="timetable-grid-container">
+          <p>No timetable generated yet. Go to the "Generate Timetable" page to create one.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+<!-- IMAGE DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<!-- PDF DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="view_timetable.script.js"></script>
+</body>
+</html>

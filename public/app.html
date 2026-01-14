@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Timetable Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="faculty.style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>AI Timetable</h2>
+      <nav>
+        <ul>
+          <li><a href="app.html" class="active">Generate Timetable</a></li>
+          <li><a href="class.html">Class Management</a></li>
+          <li><a href="view_timetable.html">View Timetable</a></li>
+          <li><a href="faculty.html">Faculty Data</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+      <button class="logout-button" id="logout-button">Logout</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <h1 class="main-title">Timetable Schedule Builder</h1>
+
+      <section id="generate-section" class="main-content-section active">
+
+        <!-- SELECT CLASS -->
+        <div class="card">
+          <h2>Select Class</h2>
+          <select id="class-select" class="dropdown">
+            <option value="">-- Select Class --</option>
+          </select>
+          <p id="class-warning" style="color:red; display:none;">
+            Please select a class before generating timetable.
+          </p>
+        </div>
+
+        <div class="card">
+  <h2>Admin Command</h2>
+
+  <div class="chat-command-box">
+    <div id="chat-messages" class="chat-messages"></div>
+
+    <div class="chat-input-row">
+      <textarea
+        id="admin-command"
+        placeholder="Type message..."
+        rows="2"
+      ></textarea>
+
+      <!-- 🔥 VERY IMPORTANT -->
+      <button id="send-chat-btn" type="button">➤</button>
+    </div>
+
+    <small>AI understands English / Hindi / Hinglish</small>
+  </div>
+</div>
+
+
+        <!-- STEP 2 -->
+        <div class="card">
+          <h2>Check Faculty & Generate</h2>
+
+          <form id="generation-controls-form">
+
+            <div class="form-group">
+              <label>Select Generation Type:</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="generation-type" value="today" checked />
+                  Today Only
+                </label>
+                <label>
+                  <input type="radio" name="generation-type" value="tomorrow" />
+                  Tomorrow
+                </label>
+                <label>
+                  <input type="radio" name="generation-type" value="daily" />
+                  Daily (This Week)
+                </label>
+              </div>
+            </div>
+<!-- ✅ REQUIRED FOR "CHECK FACULTY" BUTTON -->
+<div class="form-group">
+  <label>Faculty Status</label>
+  <div id="faculty-attendance-list">
+    <p>Click "Check Faculty" to load faculty status.</p>
+  </div>
+</div>
+
+            <div class="form-group">
+              <label>Faculty Attendance (from Faculty Data)</label>
+              <div id="faculty-attendance-box" class="faculty-list">
+                <p>Loading faculty...</p>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button
+                type="button"
+                id="check-faculty-btn"
+                class="secondary-button"
+              >
+                Check Faculty
+              </button>
+              <button type="submit" id="generate-btn">
+                Generate Timetable
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- RESULT -->
+        <div class="card">
+          <h2>Generated Timetable Result</h2>
+          <div id="timetable-result">
+            <p>Your new timetable will appear here.</p>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+<!-- IMAGE DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<!-- PDF DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

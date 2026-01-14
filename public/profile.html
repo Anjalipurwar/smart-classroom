@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - AI Timetable</title>
+  <link rel="stylesheet" href="style.css"> </head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>AI Timetable</h2>
+      <nav>
+        <ul>
+          <li><a href="app.html">Generate Timetable</a></li>
+           <li><a href="class.html">Class Management</a></li>
+          <li><a href="view_timetable.html">View Timetable</a></li>
+          <li><a href="faculty.html">Faculty Data</a></li>
+          <li><a href="profile.html" class="active">Profile</a></li> </ul>
+      </nav>
+      <button class="logout-button" onclick="logout()">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="main-title">Your Profile</h1>
+
+      <div class="card">
+        <h2>Account Details</h2>
+        <p>This section will display user account information.</p>
+        <p>Features like changing passwords could be added here later.</p>
+        </div>
+    </main>
+  </div>
+
+  <script>
+    async function logout() {
+      const response = await fetch('/api/logout', { method: 'POST' });
+      const data = await response.json();
+      if (data.success) { window.location.href = '/'; } else { alert('Logout failed.'); }
+    }
+  </script>
+</body>
+</html>

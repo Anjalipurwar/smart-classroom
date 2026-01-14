@@ -1,0 +1,435 @@
+/* File: public/faculty.style.css */
+/* --- Faculty Add Card Styling --- */
+
+.faculty-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.faculty-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faculty-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.faculty-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.faculty-form input,
+.faculty-form select {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.add-faculty-btn {
+  width: fit-content;
+  background: #00c6a7;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-faculty-btn:hover {
+  background: #009b88;
+}
+
+.status-message {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* --- Faculty List Styles --- */
+#faculty-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between faculty items */
+}
+
+.faculty-item {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f6feff; /* Light background for item */
+  border: 5px solid #e0f0ff; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  gap: 10px; /* Space between elements inside the item */
+}
+
+.faculty-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-grow: 1; /* Allow details to take available space */
+}
+
+.faculty-item-details strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.faculty-item-details span {
+  font-size: 0.9rem;
+  color: #555;
+}
+.faculty-item-details .subjects-list span {
+  background-color: #e0f0ff; /* Light blue tag for subjects */
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block; /* Make tags appear inline */
+  margin-right: 5px; /* Space between subject tags */
+  margin-bottom: 3px;
+}
+
+
+/* --- Attendance Toggle Styles --- */
+.attendance-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0; /* Prevent toggle from shrinking */
+}
+.attendance-toggle .toggle-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  width: 50px; /* Fixed width for alignment */
+  text-align: right;
+}
+.switch { /* The switch container */
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Width of the switch */
+  height: 28px; /* Height of the switch */
+}
+.switch input { /* Hide default checkbox */
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider { /* The track */
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc; /* Gray when off */
+  transition: .4s;
+  border-radius: 28px; /* Fully rounded */
+}
+.slider:before { /* The knob */
+  position: absolute;
+  content: "";
+  height: 20px; /* Size of the knob */
+  width: 20px;
+  left: 4px; /* Position inside the track */
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%; /* Make it round */
+}
+input:checked + .slider {
+  background-color: #00c6a7; /* Teal when on */
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #00c6a7;
+}
+input:checked + .slider:before {
+  transform: translateX(22px); /* Move knob to the right */
+}
+
+/* --- Delete Button --- */
+.faculty-item button.delete-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+.faculty-item button.delete-button:hover {
+  background-color: #c82333; /* Darker red */
+}
+
+/* --- Status Message --- */
+.status-message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  min-height: 1.2em; /* Prevent layout shift */
+}
+
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.availability-table th,
+.availability-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+.availability-table th {
+  background-color: #00c6a7;
+  color: white;
+}
+
+.availability-table select {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+.status-box {
+  padding: 6px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  color: white;
+}
+
+.free {
+  background-color: #4CAF50;
+}
+
+.busy {
+  background-color: #E53935;
+}
+/* ===============================
+   FACULTY LIST CARD
+================================ */
+.faculty-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e0e6ed;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faculty-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.faculty-item-details strong {
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.subjects-list {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.subjects-list span {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.edit-button {
+  background: #2fc7bb;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.edit-button:hover {
+  background: #1d4ed8;
+}
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #b91c1c;
+}
+
+/* ===============================
+   TOGGLE SWITCH (Present / Absent)
+================================ */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #05821a;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+/* ===============================
+   EDIT MODAL OVERLAY
+================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ===============================
+   EDIT MODAL BOX
+================================ */
+.modal-box {
+  background: #cff5f4;
+  width: 360px;
+  padding: 50px;
+  border-radius: 12px;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-box h2 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: #111827;
+}
+
+/* ===============================
+   MODAL INPUTS
+================================ */
+.modal-box input,
+.modal-box select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #5f979a;
+  font-size: 14px;
+}
+
+.modal-box input:focus,
+.modal-box select:focus {
+  outline: none;
+  border-color: #9fdce9;
+}
+
+/* ===============================
+   MODAL ACTION BUTTONS
+================================ */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.btn-save {
+  flex: 1;
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #dc2626;
+}

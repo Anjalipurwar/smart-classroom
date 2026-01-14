@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Timetable | Login & Signup</title>
+  <link rel="stylesheet" href="login.style.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="tab-buttons">
+      <button id="show-login" class="active">Login</button>
+      <button id="show-signup"Class="active">Signup</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="login-form" class="form-section active">
+  
+      <div class="form-group">
+        <label for="login-email">Gmail ID</label>
+        <input type="email" id="login-email" placeholder="example@gmail.com" required />
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter password" required />
+      </div>
+      <button type="submit">Login</button>
+      <p class="error-message" id="login-error"></p>
+      <p class="switch-text">Don't have an account? <span id="switch-to-signup">Create one</span></p>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signup-form" class="form-section">
+    
+      <div class="form-group">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Gmail ID</label>
+        <input type="email" id="signup-email" placeholder="example@gmail.com" required />
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="Minimum 6 characters" required />
+      </div>
+      <button type="submit">Create Account</button>
+      <p class="error-message" id="signup-error"></p>
+      <p class="switch-text">Already have an account? <span id="switch-to-login">Login here</span></p>
+    </form>
+  </div>
+
+  <script src="login.script.js"></script>
+</body>
+</html>

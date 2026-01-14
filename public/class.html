@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Management - AI Timetable</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="class.style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>AI Timetable</h2>
+      <nav>
+        <ul>
+          <li><a href="app.html">Generate Timetable</a></li>
+          <li><a href="class.html" class="active">Class Management</a></li>
+          <li><a href="view_timetable.html">View Timetable</a></li>
+          <li><a href="faculty.html">Faculty Data</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+      <button class="logout-button" id="logout-button-class">Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1 class="main-title">Class Management</h1>
+
+      <!-- Add Class -->
+      <div class="card">
+        <h2>Add New Class</h2>
+        <form id="add-class-form">
+          <input type="text" id="class-name" placeholder="Enter class name..." required />
+          <input type="text" id="class-description" placeholder="Description (optional)" />
+          <button type="submit" class="btn">Add Class</button>
+        </form>
+      </div>
+
+      <!-- Existing Classes -->
+      <div class="card">
+        <h2>Existing Classes</h2>
+        <div id="class-list-container">
+          <p>Loading classes...</p>
+        </div>
+      </div>
+
+      <!-- Select Class & Timetable -->
+      <div class="card timetable-card">
+        <h2>📅 Select Class & Timetable</h2>
+        <p>Choose a class to manage or view its timetable.</p>
+
+        <select id="timetable-class-select" class="dropdown"></select>
+
+        <div class="timetable-controls">
+          <button id="open-master-btn" class="btn master-btn">🗂 Master Timetable</button>
+        </div>
+      </div>
+
+      <!-- View Saved Timetable -->
+      <div class="card">
+        <h2>View Saved Timetable</h2>
+        <div id="class-timetable">
+          <p>Select a class to view its saved timetable.</p>
+        </div>
+      </div>
+
+      <!-- Faculty Assigned -->
+      <div class="card">
+        <h2>Faculty Assigned</h2>
+        <div id="faculty-assignment">
+          <p>Select a class to see faculty assignments.</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="class.script.js"></script>
+</body>
+</html>

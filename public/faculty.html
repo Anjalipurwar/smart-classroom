@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Data - AI Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="faculty.style.css"> 
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>AI Timetable</h2>
+      <nav>
+        <ul>
+          <li><a href="app.html">Generate Timetable</a></li> 
+          <li><a href="class.html">Class Management</a></li>
+          <li><a href="view_timetable.html">View Timetable</a></li> 
+          <li><a href="faculty.html" class="active">Faculty Data</a></li> 
+          <li><a href="profile.html">Profile</a></li> 
+        </ul>
+      </nav>
+      <button class="logout-button" id="logout-button-faculty">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <h1 class="main-title">Faculty Data Management</h1>
+<div class="card faculty-card">
+  <h2>Add New Faculty</h2>
+
+  <form id="add-faculty-form" class="faculty-form">
+
+    <div class="form-group">
+      <label for="faculty-name">Faculty Name</label>
+      <input type="text" id="faculty-name" placeholder="e.g., Prof. Smith" required>
+    </div>
+
+    <div class="form-group">
+      <label for="faculty-type">Faculty Type</label>
+      <select id="faculty-type">
+        <option value="both">Both (Lecture & Lab)</option>
+        <option value="lecture">Lecture Only</option>
+        <option value="lab">Lab Only</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="faculty-subjects">Subjects Taught (comma-separated)</label>
+      <input type="text" id="faculty-subjects" placeholder="e.g., Math, Physics" required>
+    </div>
+
+    <button type="submit" class="add-faculty-btn">Add Faculty</button>
+
+  </form>
+
+  <p id="faculty-add-status" class="status-message"></p>
+</div>
+
+      <div class="card">
+        <h2>Current Faculty List</h2>
+        <div id="faculty-list-container">
+          <p>Loading faculty...</p>
+          </div>
+<button onclick="downloadAsPDF('faculty-list-container')">
+  Download Faculty PDF
+</button>
+
+<button onclick="downloadAsImage('faculty-list-container')">
+  Save Faculty Image
+</button>
+
+
+          <div class="card">
+  <h2>Faculty Timetable Grid</h2>
+  <p>Select a faculty from above to edit their weekly availability.</p>
+  <select id="faculty-select"></select>
+  
+  <div id="availability-grid"></div>
+
+  <button id="save-availability">Save Availability</button>
+  <p id="availability-status" class="status-message"></p>
+</div>
+
+      </div>
+      <div id="edit-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Edit Faculty</h2>
+
+    <input id="edit-faculty-name" type="text" placeholder="Faculty name">
+
+    <select id="edit-faculty-type">
+      <option value="both">Both</option>
+      <option value="lecture">Lecture</option>
+      <option value="lab">Lab</option>
+    </select>
+
+    <input id="edit-faculty-subjects" type="text" placeholder="Subjects (comma separated)">
+
+    <div class="modal-actions">
+      <button id="save-edit-btn" class="btn-save">Save</button>
+      <button id="cancel-edit-btn" class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+    </main>
+  </div>
+<!-- IMAGE DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<!-- PDF DOWNLOAD -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="faculty.script.js"></script> 
+</body>
+</html>

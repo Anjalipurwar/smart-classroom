@@ -1,0 +1,107 @@
+/* File: public/timetable_grid.css */
+
+#timetable-grid-container {
+  width: 100%;
+  border: 1px solid #e0f0ff;
+  border-radius: 8px;
+  overflow: hidden; /* For the rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 80, 170, 0.05);
+}
+
+.timetable-row {
+  display: flex;
+  border-bottom: 1px solid #e0f0ff;
+}
+.timetable-row:last-child {
+  border-bottom: none;
+}
+
+.timetable-header {
+  background-color: #f6feff;
+  font-weight: 600;
+  color: #00c6a7; /* Your theme's teal color */
+}
+
+.timetable-cell {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Time column */
+.timetable-cell:first-child {
+  width: 25%;
+  font-weight: 500;
+  color: #333;
+  border-right: 1px solid #e0f0ff;
+  background-color: #f6feff;
+}
+
+/* Subject/Faculty column */
+.timetable-cell:last-child {
+  width: 75%;
+}
+
+.timetable-slot .slot-subject {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  display: block; /* Stack subject */
+}
+
+.timetable-slot .slot-faculty {
+  font-size: 1rem;
+  color: #555;
+  display: block;
+  margin-top: 5px; /* Space between subject and faculty */
+}
+
+.timetable-slot .break {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00c6a7;
+  text-align: center;
+}
+
+/* --- ADD THIS TO THE END --- */
+
+.timetable-slot .faculty-present {
+  color: #008000; /* Green */
+}
+
+.timetable-slot .faculty-absent {
+  color: #dc3545; /* Red */
+  font-weight: 600;
+  text-decoration: line-through;
+}
+
+
+.timetable-grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.timetable-grid th, .timetable-grid td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.timetable-grid th {
+  background-color: #00c6a7;
+  color: white;
+}
+
+.clear-btn, .regen-btn {
+  background-color: #00c6a7;
+  color: white;
+  padding: 8px 12px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clear-btn:hover { background-color: #e74c3c; }
+.regen-btn:hover { background-color: #3498db; }
