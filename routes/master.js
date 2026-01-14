@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const MasterTimetable = require("../models/MasterTimetable");
-const MasterHistory = require("../models/MasterTimetableHistory");
+const MasterHistory = require("../models/MastertimetableHistory");
 
 // default slots
 function defaultSlots() {
